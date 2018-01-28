@@ -34,7 +34,7 @@ read -sp 'Password: ' passvar
 echo Thank you $uservar we now have your login details...attempting to sign you in...
 
 if [ $uservar == a7md0v ] && [ $passvar == loleasy ]; then
-    echo "$(tput setaf 2)Welcome Ahmad ! $(tput setab 7) or whoever thought it was smart to find the password $(tput sgr 0)"
+	echo "$(tput setaf 2)Welcome Ahmad ! $(tput setab 7) or whoever thought it was smart to find the password $(tput sgr 0)"
 
 	title="Please choose a number"
 	prompt="Pick an option:"
@@ -55,7 +55,9 @@ if [ $uservar == a7md0v ] && [ $passvar == loleasy ]; then
 
 		esac
 else
-echo "You are not authorized to sign in, sorry."
-exit 1
+	echo "You are not authorized to sign in, sorry."
+	exit 1
+
+fi
 
 done
