@@ -1,25 +1,67 @@
 #!/bin/bash
 
-# This script lets you present different menus to Tux.  He will only be happy
-# when given a fish.  To make it more fun, we added a couple more animals.
+#  /$$$$$$  /$$$$$$$$ /$$      /$$ /$$$$$$$   /$$$$$$  /$$    /$$
+# /$$__  $$|_____ $$/| $$$    /$$$| $$__  $$ /$$$_  $$| $$   | $$
+#| $$  \ $$     /$$/ | $$$$  /$$$$| $$  \ $$| $$$$\ $$| $$   | $$
+#| $$$$$$$$    /$$/  | $$ $$/$$ $$| $$  | $$| $$ $$ $$|  $$ / $$/
+#| $$__  $$   /$$/   | $$  $$$| $$| $$  | $$| $$\ $$$$ \  $$ $$/ 
+#| $$  | $$  /$$/    | $$\  $ | $$| $$  | $$| $$ \ $$$  \  $$$/  
+#| $$  | $$ /$$/     | $$ \/  | $$| $$$$$$$/|  $$$$$$/   \  $/   
+#|__/  |__/|__/      |__/     |__/|_______/  \______/     \_/  
+#			A 7 M D 0 V   S C R I P T S  2 0 1 8 (c)
 
-if [ "$menu" == "fish" ]; then
-  if [ "$animal" == "penguin" ]; then
-    echo -e "Hmmmmmm fish... Tux happy!\n"
-  elif [ "$animal" == "dolphin" ]; then
-    echo -e "\a\a\aPweetpeettreetppeterdepweet!\a\a\a\n"
+
+echo "   /$$$$$$  /$$$$$$$$ /$$      /$$ /$$$$$$$   /$$$$$$  /$$    /$$"
+sleep 0.5s
+echo "  /$$__  $$|_____ $$/| $$$    /$$$| $$__  $$ /$$$_  $$| $$   | $$"
+sleep 0.5s
+echo " | $$  \ $$     /$$/ | $$$$  /$$$$| $$  \ $$| $$$$\ $$| $$   | $$"
+sleep 0.5s
+echo " | $$$$$$$$    /$$/  | $$ $$/$$ $$| $$  | $$| $$ $$ $$|  $$ / $$/"
+sleep 0.5s
+echo " | $$__  $$   /$$/   | $$  $$$| $$| $$  | $$| $$\ $$$$ \  $$ $$/ "
+sleep 0.5s
+echo " | $$  | $$  /$$/    | $$\  $ | $$| $$  | $$| $$ \ $$$  \  $$$/  "
+sleep 0.5s
+echo " | $$  | $$ /$$/     | $$ \/  | $$| $$$$$$$/|  $$$$$$/   \  $/   "
+sleep 0.5s
+echo " |__/  |__/|__/      |__/     |__/|_______/  \______/     \_/  "
+sleep 0.5s
+echo " 			A 7 M D 0 V   S C R I P T S  2 0 1 8 (c) "
+
+sleep 2s
+
+echo "Welcome to A7's remote login script ! Please authenticate below:"
+
+
+read -p 'Username: ' uservar
+read -sp 'Password: ' passvar
+
+echo Thank you $uservar we now have your login details...attempting to sign you in...
+
+  if [ $uservar == a7md0v ] && [ $passvar == loleasy ]; then
+    echo "$(tput setaf 2)Welcome Ahmad ! $(tput setab 7) or whoever thought it was smart to find the password $(tput sgr 0)"
   else
-    echo -e "*prrrrrrrt*\n"
-  fi
-else
-  if [ "$animal" == "penguin" ]; then
-    echo -e "Tux don't like that.  Tux wants fish!\n"
-    exit 1
-  elif [ "$animal" == "dolphin" ]; then
-    echo -e "\a\a\a\a\a\aPweepwishpeeterdepweet!\a\a\a"
-    exit 2
-  else
-    echo -e "Will you read this sign?!  Don't feed the "$animal"s!\n"
-    exit 3
-  fi
-fi
+    echo "You are not authorized to sign in, sorry."
+	exit 1
+
+title="Please choose a number"
+prompt="Pick an option:"
+options=("A" "B" "C")
+
+echo "$title"
+PS3="$prompt "
+select opt in "${options[@]}" "Quit"; do 
+
+    case "$REPLY" in
+
+    1 ) echo "You picked $opt which is option $REPLY";;
+    2 ) echo "You picked $opt which is option $REPLY";;
+    3 ) echo "You picked $opt which is option $REPLY";;
+
+    $(( ${#options[@]}+1 )) ) echo "Goodbye!"; break;;
+    *) echo "Invalid option. Try another one.";continue;;
+
+    esac
+
+done
