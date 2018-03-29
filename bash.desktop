@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Test Shortcut
+Comment=Run from desktop
+Exec=gnome-terminal -e "bash -c 'echo hello a7md;$SHELL'"
+Icon=/home/a7md/icon.png
+Terminal=true
+Type=Application
+Categories=Application;
