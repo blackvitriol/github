@@ -1,0 +1,30 @@
+Docker Cheatsheet
+
+# diagnostics
+docker --version
+docker info
+
+# check
+docker image ls
+docker container ls --all
+sudo docker ps -as
+docker ps -aq -f status=exited
+
+sudo docker tag edbf6b2871d7 nameafile
+
+# creating a project
+# create folder, place Dockerfile
+sudo docker build -f Dockerfile.randomname .
+
+# starting and stopping
+docker run -d -p 8080:80 friendlyhello
+sudo docker cp test.sh 46c2cb66cb91:/root
+docker commit -a Ahmad
+docker container stop 1fa4ab2cf395
+
+# removing
+$ sudo docker system prune
+$ sudo docker container rm 055bd72c0962 
+$ docker ps --since 739ea5e45ef6 -q | xargs docker rm
+docker images -q --filter dangling=true | xargs docker rmi
+docker ps -aq --no-trunc | xargs docker rm
