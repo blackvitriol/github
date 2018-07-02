@@ -1,15 +1,21 @@
 echo "Welcome to A7's EV switcher script !"
 
-#switch parameters to your env vars
-FILE="$HOME/notepad1.txt"
-PATH1="hello"
-PATH2="world"
+FILE="$HOME/.bashrc"
 
-if grep -Fx "$PATH1" $FILE
+PATH1="/usr/local/cuda-9.0/bin"
+PATH1_extra="/usr/local/cuda-9.0/lib64"
+
+PATH2="/usr/local/cuda-8.0/bin"
+PATH2_extra="/usr/local/cuda-8.0/lib64"
+
+if grep -F "$PATH1" $FILE
 then
-    sed -i -e "s/$PATH1/$PATH2/g" $FILE
+    sed -i "s|$PATH1|$PATH2|g" $FILE
+    sed -i "s|$PATH1_extra|$PATH2_extra|g" $FILE
 else
-    sed -i -e "s/$PATH2/$PATH1/g" $FILE
+    sed -i "s|$PATH2|$PATH1|g" $FILE
+    sed -i "s|$PATH2_extra|$PATH1_extra|g" $FILE
+
 fi
 
 echo "Paths have been changed succesfully ! ~A7"
